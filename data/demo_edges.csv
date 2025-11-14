@@ -1,0 +1,16 @@
+# CSV format for metabolic pathway visualization
+# Columns: human_substrate,human_product,bacteria_substrate,bacteria_product,plant_substrate,plant_product
+# Empty columns indicate no ortholog available for that organism
+#
+# TCA Cycle Pathway
+Citrate,Isocitrate,Citrate_bac,Isocitrate_bac,Citrate_pl,Isocitrate_pl
+Isocitrate,Alpha-Ketoglutarate,Isocitrate_bac,AKG_bac,Isocitrate_pl,AKG_pl
+Alpha-Ketoglutarate,Succinyl-CoA,AKG_bac,Succinyl-CoA_bac,AKG_pl,Succinyl-CoA_pl
+Succinyl-CoA,Succinate,Succinyl-CoA_bac,Succinate_bac,Succinyl-CoA_pl,Succinate_pl
+Succinate,Fumarate,Succinate_bac,Fumarate_bac,Succinate_pl,Fumarate_pl
+Fumarate,Malate,Fumarate_bac,Malate_bac,Fumarate_pl,Malate_pl
+Malate,Oxaloacetate,Malate_bac,Oxaloacetate_bac,Malate_pl,Oxaloacetate_pl
+Oxaloacetate,Citrate,Oxaloacetate_bac,Citrate_bac,Oxaloacetate_pl,Citrate_pl
+#
+# Electron Transport / Energy Generation
+NADH,ATP,NADH_bac,ATP_bac,NADPH_pl,ATP_pl

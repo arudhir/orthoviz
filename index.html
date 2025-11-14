@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metabolic Pathways 3D Visualization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main 3D Canvas -->
+    <div id="canvas-container"></div>
+
+    <!-- Top Header -->
+    <div id="header">
+        <h1>Metabolic Pathway Engineering</h1>
+        <p class="tagline">Rewiring mitochondrial biology with bacterial and plant modules</p>
+    </div>
+
+    <!-- Legend Panel -->
+    <div id="legend">
+        <h3>Layers</h3>
+        <div class="legend-item">
+            <span class="color-dot" style="background: #4FC3F7;"></span>
+            <span>Human Mitochondria</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-human" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="legend-item">
+            <span class="color-dot" style="background: #FFB74D;"></span>
+            <span>Bacteria</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-bacteria" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="legend-item">
+            <span class="color-dot" style="background: #81C784;"></span>
+            <span>Plant/Chloroplast</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-plant" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <hr>
+        <h3>Connections</h3>
+        <div class="legend-item">
+            <span class="line-sample pathway"></span>
+            <span>Pathway</span>
+        </div>
+        <div class="legend-item">
+            <span class="line-sample ortholog"></span>
+            <span>Ortholog</span>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-orthologs" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Info Card -->
+    <div id="info-card" class="hidden">
+        <button id="close-card" class="close-btn">&times;</button>
+        <h2 id="card-title">Node Name</h2>
+        <p class="card-subtitle" id="card-layer">Layer</p>
+        <div class="card-content">
+            <div class="card-field">
+                <strong>Type:</strong>
+                <span id="card-type">-</span>
+            </div>
+            <div class="card-field">
+                <strong>Role:</strong>
+                <span id="card-role">-</span>
+            </div>
+            <div class="card-field" id="card-notes-field">
+                <strong>Notes:</strong>
+                <p id="card-notes">-</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loading">
+        <div class="spinner"></div>
+        <p>Loading metabolic pathways...</p>
+    </div>
+
+    <!-- Tooltip -->
+    <div id="tooltip" class="hidden"></div>
+
+    <!-- Three.js from CDN -->
+    <script async src="https://unpkg.com/three@0.160.0/build/three.module.js" type="module"></script>
+
+    <!-- Main Application -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>
