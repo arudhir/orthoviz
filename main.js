@@ -1,6 +1,6 @@
-// Import Three.js from CDN
-import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
-import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+// Import Three.js (using import map defined in index.html)
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 // ===== CONFIGURATION =====
 const CONFIG = {

@@ -2,6 +2,17 @@
 <html>
 <head>
     <title>Three.js Test</title>
+
+    <!-- Import Map for Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+
     <style>
         body {
             margin: 0;
@@ -44,12 +55,12 @@
 
             // Test 1: Import Three.js
             log('Attempting to import Three.js...');
-            const THREE = await import('https://unpkg.com/three@0.160.0/build/three.module.js');
+            const THREE = await import('three');
             log('✓ Three.js imported successfully');
 
             // Test 2: Import OrbitControls
             log('Attempting to import OrbitControls...');
-            const { OrbitControls } = await import('https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js');
+            const { OrbitControls } = await import('three/addons/controls/OrbitControls.js');
             log('✓ OrbitControls imported successfully');
 
             // Test 3: Create scene
