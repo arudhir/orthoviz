@@ -44,12 +44,12 @@
 
             // Test 1: Import Three.js
             log('Attempting to import Three.js...');
-            const THREE = await import('https://esm.sh/three@0.160.0');
+            const THREE = await import('https://unpkg.com/three@0.160.0/build/three.module.js');
             log('✓ Three.js imported successfully');
 
             // Test 2: Import OrbitControls
             log('Attempting to import OrbitControls...');
-            const { OrbitControls } = await import('https://esm.sh/three@0.160.0/examples/jsm/controls/OrbitControls');
+            const { OrbitControls } = await import('https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js');
             log('✓ OrbitControls imported successfully');
 
             // Test 3: Create scene
