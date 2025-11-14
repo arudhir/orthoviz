@@ -28,6 +28,18 @@
 
     <!-- Legend Panel -->
     <div id="legend">
+        <div class="upload-section">
+            <label for="file-upload" class="upload-btn">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2l5 5h-3v5H6V7H3l5-5z"/>
+                    <path d="M2 13h12v2H2z"/>
+                </svg>
+                Upload Data
+            </label>
+            <input type="file" id="file-upload" accept=".json,.csv" style="display: none;">
+            <div id="upload-status"></div>
+        </div>
+        <hr>
         <h3>Layers</h3>
         <div class="legend-item">
             <span class="color-dot" style="background: #4FC3F7;"></span>

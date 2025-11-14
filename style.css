@@ -78,6 +78,51 @@ body {
     margin-bottom: 12px;
 }
 
+.upload-section {
+    margin-bottom: 16px;
+}
+
+.upload-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #4FC3F7, #3FA7D6);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3);
+}
+
+.upload-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(79, 195, 247, 0.5);
+    background: linear-gradient(135deg, #5FD3FF, #4FB7E6);
+}
+
+.upload-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+#upload-status {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    min-height: 20px;
+}
+
+#upload-status.success {
+    color: #81C784;
+}
+
+#upload-status.error {
+    color: #ff6b6b;
+}
+
 #legend hr {
     border: none;
     border-top: 1px solid rgba(255, 255, 255, 0.1);

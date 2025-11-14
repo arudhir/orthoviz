@@ -53,6 +53,7 @@ Then open your browser to `http://localhost:8000`
 - **Hover**: Hover over nodes to see labels and highlight connections
 - **Click**: Click nodes to view detailed information
 - **Toggle Layers**: Use the legend panel to show/hide layers
+- **Upload Data**: Click the "Upload Data" button to load your own JSON or CSV files
 
 ## Data Model
 
@@ -147,12 +148,28 @@ console.log(JSON.stringify(graphData, null, 2));
 
 ### Adding New Data
 
+#### Option 1: Upload via UI (Easiest!)
+
+1. **Prepare your data** in either JSON or CSV format (see Data Model section above)
+2. **Click the "Upload Data" button** in the legend panel
+3. **Select your file** (.json or .csv)
+4. **Watch the visualization reload** with your new data automatically!
+
+The upload feature:
+- ✅ Supports both JSON and CSV formats
+- ✅ Validates data structure before loading
+- ✅ Shows helpful error messages if something is wrong
+- ✅ Automatically clears old visualization and loads new one
+- ✅ Perfect for live demos and quick iteration
+
+#### Option 2: Replace Default Data
+
 1. **Create your dataset** in either CSV or JSON format following the schemas above
 2. **Save the file** in the `data/` directory
 3. **Update `main.js`** to load your file:
 
 ```javascript
-// Around line 105 in main.js
+// Around line 182 in main.js
 const response = await fetch('data/your_custom_data.json');
 ```
 

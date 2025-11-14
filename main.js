@@ -152,6 +152,9 @@ function setupEventListeners() {
 
     document.getElementById('close-card').addEventListener('click', closeInfoCard);
 
+    // File upload
+    document.getElementById('file-upload').addEventListener('change', handleFileUpload);
+
     // Layer toggles
     document.getElementById('toggle-human').addEventListener('change', (e) => {
         state.visibility.human_mito = e.target.checked;
@@ -741,6 +744,104 @@ function onWindowResize() {
     state.camera.aspect = window.innerWidth / window.innerHeight;
     state.camera.updateProjectionMatrix();
     state.renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+// ===== FILE UPLOAD =====
+async function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const statusEl = document.getElementById('upload-status');
+    statusEl.textContent = 'Loading file...';
+    statusEl.className = '';
+
+    try {
+        const text = await file.text();
+        let graphData;
+
+        // Parse based on file type
+        if (file.name.endsWith('.json')) {
+            graphData = JSON.parse(text);
+            if (!graphData.nodes || !graphData.edges) {
+                throw new Error('Invalid JSON format: must have "nodes" and "edges" arrays');
+            }
+        } else if (file.name.endsWith('.csv')) {
+            graphData = parseCsvToGraph(text);
+        } else {
+            throw new Error('Unsupported file type. Please upload .json or .csv file.');
+        }
+
+        // Reload visualization with new data
+        await reloadVisualization(graphData);
+
+        statusEl.textContent = `✓ Loaded ${graphData.nodes.length} nodes, ${graphData.edges.length} edges`;
+        statusEl.className = 'success';
+
+        // Clear status after 5 seconds
+        setTimeout(() => {
+            statusEl.textContent = '';
+            statusEl.className = '';
+        }, 5000);
+
+    } catch (error) {
+        console.error('Error loading file:', error);
+        statusEl.textContent = `✗ Error: ${error.message}`;
+        statusEl.className = 'error';
+    }
+
+    // Reset file input
+    event.target.value = '';
+}
+
+function clearVisualization() {
+    // Remove all meshes from scene
+    [...state.meshes.planes, ...state.meshes.nodes, ...state.meshes.pathwayEdges, ...state.meshes.orthologEdges].forEach(mesh => {
+        if (mesh.geometry) mesh.geometry.dispose();
+        if (mesh.material) {
+            if (Array.isArray(mesh.material)) {
+                mesh.material.forEach(mat => mat.dispose());
+            } else {
+                mesh.material.dispose();
+            }
+        }
+        state.scene.remove(mesh);
+    });
+
+    // Clear state
+    state.meshes = {
+        planes: [],
+        nodes: [],
+        pathwayEdges: [],
+        orthologEdges: []
+    };
+    state.nodesData.clear();
+    state.edgesData = [];
+    state.hoveredNode = null;
+    state.selectedNode = null;
+
+    // Close info card
+    closeInfoCard();
+}
+
+async function reloadVisualization(graphData) {
+    // Clear existing visualization
+    clearVisualization();
+
+    // Load new data
+    graphData.nodes.forEach(node => {
+        state.nodesData.set(node.id, node);
+    });
+    state.edgesData = graphData.edges;
+
+    console.log(`Reloading with ${state.nodesData.size} nodes and ${state.edgesData.length} edges`);
+
+    // Recreate visualization
+    createPlanes();
+    createNodes();
+    createEdges();
+
+    // Restart intro animation
+    startIntroAnimation();
 }
 
 // ===== CSV PARSER (for future use) =====
