@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Three.js Test</title>
+    <style>
+        body {
+            margin: 0;
+            background: #0a1628;
+            color: white;
+            font-family: monospace;
+            padding: 20px;
+        }
+        #status {
+            background: rgba(79, 195, 247, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .success { color: #81C784; }
+        .error { color: #ff6b6b; }
+        canvas { border: 2px solid #4FC3F7; }
+    </style>
+</head>
+<body>
+    <div id="status">
+        <h2>Diagnostic Test</h2>
+        <div id="messages"></div>
+    </div>
+    <div id="canvas-container"></div>
+
+    <script type="module">
+        const messages = document.getElementById('messages');
+
+        function log(msg, isError = false) {
+            const div = document.createElement('div');
+            div.className = isError ? 'error' : 'success';
+            div.textContent = '• ' + msg;
+            messages.appendChild(div);
+            console.log(msg);
+        }
+
+        try {
+            log('Starting test...');
+
+            // Test 1: Import Three.js
+            log('Attempting to import Three.js...');
+            const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js');
+            log('✓ Three.js imported successfully');
+
+            // Test 2: Import OrbitControls
+            log('Attempting to import OrbitControls...');
+            const { OrbitControls } = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js');
+            log('✓ OrbitControls imported successfully');
+
+            // Test 3: Create scene
+            log('Creating Three.js scene...');
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x0a1628);
+            log('✓ Scene created');
+
+            // Test 4: Create camera
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+            log('✓ Camera created');
+
+            // Test 5: Create renderer
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(800, 600);
+            document.getElementById('canvas-container').appendChild(renderer.domElement);
+            log('✓ Renderer created');
+
+            // Test 6: Add a test object
+            const geometry = new THREE.BoxGeometry(1, 1, 1);
+            const material = new THREE.MeshBasicMaterial({ color: 0x4FC3F7 });
+            const cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);
+            log('✓ Test cube added');
+
+            // Test 7: Add controls
+            const controls = new OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            log('✓ OrbitControls initialized');
+
+            // Test 8: Load data
+            log('Attempting to load data...');
+            const response = await fetch('data/demo_edges.json');
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            const data = await response.json();
+            log(`✓ Data loaded: ${data.nodes.length} nodes, ${data.edges.length} edges`);
+
+            // Animate
+            log('✓ Starting animation loop');
+            function animate() {
+                requestAnimationFrame(animate);
+                cube.rotation.x += 0.01;
+                cube.rotation.y += 0.01;
+                controls.update();
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            log('');
+            log('=== ALL TESTS PASSED ===', false);
+            log('If you see a rotating blue cube below, everything is working!', false);
+
+        } catch (error) {
+            log('❌ ERROR: ' + error.message, true);
+            log('Stack: ' + error.stack, true);
+        }
+    </script>
+</body>
+</html>

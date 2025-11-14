@@ -1,6 +1,6 @@
 // Import Three.js from CDN
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
-import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+import * as THREE from 'https://cdn.skypack.dev/three@0.160.0';
+import { OrbitControls } from 'https://cdn.skypack.dev/three@0.160.0/examples/jsm/controls/OrbitControls.js';
 
 // ===== CONFIGURATION =====
 const CONFIG = {
@@ -54,8 +54,11 @@ const state = {
 
 // ===== INITIALIZATION =====
 async function init() {
+    const loadingText = document.getElementById('loading').querySelector('p');
+
     try {
         console.log('Initializing app...');
+        loadingText.textContent = 'Setting up 3D scene...';
 
         setupScene();
         setupCamera();
@@ -66,16 +69,19 @@ async function init() {
 
         // Load data
         console.log('Loading data...');
+        loadingText.textContent = 'Loading metabolic pathway data...';
         await loadData();
 
         // Create visualization
         console.log('Creating visualization...');
+        loadingText.textContent = 'Creating 3D visualization...';
         createPlanes();
         createNodes();
         createEdges();
 
         // Start animation
         console.log('Starting animation...');
+        loadingText.textContent = 'Rendering...';
         hideLoading();
         startIntroAnimation();
         animate();
@@ -84,7 +90,7 @@ async function init() {
     } catch (error) {
         console.error('Failed to initialize app:', error);
         const loading = document.getElementById('loading');
-        loading.querySelector('p').textContent = 'Error: ' + error.message;
+        loading.querySelector('p').innerHTML = `<span style="color: #ff6b6b;">Error: ${error.message}</span><br><br>Check browser console for details.`;
         loading.querySelector('.spinner').style.display = 'none';
     }
 }
