@@ -302,6 +302,17 @@ input:checked + .slider:before {
 #loading p {
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.7);
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+#loading code {
+    background: rgba(79, 195, 247, 0.2);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: #4FC3F7;
+    font-size: 0.9rem;
 }
 
 /* Animations */

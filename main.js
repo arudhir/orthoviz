@@ -1,6 +1,6 @@
 // Import Three.js from CDN
-import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
-import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
 
 // ===== CONFIGURATION =====
 const CONFIG = {
@@ -54,25 +54,39 @@ const state = {
 
 // ===== INITIALIZATION =====
 async function init() {
-    setupScene();
-    setupCamera();
-    setupRenderer();
-    setupControls();
-    setupLights();
-    setupEventListeners();
+    try {
+        console.log('Initializing app...');
 
-    // Load data
-    await loadData();
+        setupScene();
+        setupCamera();
+        setupRenderer();
+        setupControls();
+        setupLights();
+        setupEventListeners();
 
-    // Create visualization
-    createPlanes();
-    createNodes();
-    createEdges();
+        // Load data
+        console.log('Loading data...');
+        await loadData();
 
-    // Start animation
-    hideLoading();
-    startIntroAnimation();
-    animate();
+        // Create visualization
+        console.log('Creating visualization...');
+        createPlanes();
+        createNodes();
+        createEdges();
+
+        // Start animation
+        console.log('Starting animation...');
+        hideLoading();
+        startIntroAnimation();
+        animate();
+
+        console.log('App initialized successfully!');
+    } catch (error) {
+        console.error('Failed to initialize app:', error);
+        const loading = document.getElementById('loading');
+        loading.querySelector('p').textContent = 'Error: ' + error.message;
+        loading.querySelector('.spinner').style.display = 'none';
+    }
 }
 
 function setupScene() {
@@ -158,7 +172,16 @@ function setupEventListeners() {
 async function loadData() {
     try {
         const response = await fetch('data/demo_edges.json');
+
+        if (!response.ok) {
+            throw new Error(`Failed to load data: ${response.status} ${response.statusText}`);
+        }
+
         const data = await response.json();
+
+        if (!data.nodes || !data.edges) {
+            throw new Error('Invalid data format: missing nodes or edges');
+        }
 
         // Process nodes
         data.nodes.forEach(node => {
@@ -171,6 +194,7 @@ async function loadData() {
         console.log(`Loaded ${state.nodesData.size} nodes and ${state.edgesData.length} edges`);
     } catch (error) {
         console.error('Error loading data:', error);
+        throw error;
     }
 }
 

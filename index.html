@@ -89,10 +89,32 @@
     <!-- Tooltip -->
     <div id="tooltip" class="hidden"></div>
 
-    <!-- Three.js from CDN -->
-    <script async src="https://unpkg.com/three@0.160.0/build/three.module.js" type="module"></script>
-
     <!-- Main Application -->
     <script type="module" src="main.js"></script>
+
+    <!-- Error Display -->
+    <script>
+        // Check if running on file:// protocol
+        if (window.location.protocol === 'file:') {
+            setTimeout(function() {
+                const loading = document.getElementById('loading');
+                const text = loading.querySelector('p');
+                text.innerHTML = 'Please run with a local server!<br><br>Run: <code>python3 -m http.server 8000</code><br>Then visit: <code>http://localhost:8000</code>';
+                loading.querySelector('.spinner').style.display = 'none';
+            }, 2000);
+        }
+
+        window.addEventListener('error', function(e) {
+            console.error('Error:', e.error || e.message);
+            const loading = document.getElementById('loading');
+            if (loading && !loading.classList.contains('hidden')) {
+                loading.querySelector('p').innerHTML = 'Error loading app.<br>See console for details.<br><br>Make sure to run with a local server!';
+            }
+        });
+
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('Unhandled promise rejection:', e.reason);
+        });
+    </script>
 </body>
 </html>
