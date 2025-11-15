@@ -255,11 +255,39 @@ Requires WebGL support and ES6 module support.
 
 The included demo visualizes the TCA (Tricarboxylic Acid) cycle, also known as the Krebs cycle:
 
+### Demo Data (demo_edges.json)
+
 - **Human mitochondria**: Complete TCA cycle plus electron transport chain representation
 - **Bacteria (E. coli)**: Bacterial TCA cycle with differences in regulation and cofactor usage
 - **Plant**: Mitochondrial TCA cycle plus photosynthetic electron transport representation
 
-This demonstrates how the same fundamental biochemical pathway operates across different biological systems, illustrating the potential for synthetic biology approaches.
+This demonstrates how the same fundamental biochemical pathway operates across different biological systems.
+
+### Real KEGG Data (kegg_tca_cycle.json) ⭐ NEW
+
+For a more realistic investor demo, we've included **real metabolic pathway data from KEGG**:
+
+- **33 enzymes** with actual gene names and KEGG Orthology (KO) numbers
+- **Real orthologs** across Human (Homo sapiens), E. coli, and Arabidopsis
+- **Scientifically accurate** enzyme functions and pathway connections
+- **Based on KEGG map00020** (TCA Cycle pathway)
+
+**To use the real KEGG data:**
+1. Click "Upload Data" and select `data/kegg_tca_cycle.json`, OR
+2. Edit `main.js` line ~160 to load this file by default
+
+See [data/KEGG_DATA.md](data/KEGG_DATA.md) for detailed information about the dataset.
+
+**Key enzymes included:**
+- Citrate synthase (K01647)
+- Aconitase (K01681/K01682)
+- Isocitrate dehydrogenase (K00031)
+- α-Ketoglutarate dehydrogenase (K00164)
+- Succinate dehydrogenase / Complex II (K00239-K00242)
+- NADH dehydrogenase / Complex I (K00330-K00340)
+- ATP synthase / Complex V (K02111-K02115)
+
+This real data makes your presentation more compelling and scientifically grounded!
 
 ## Performance Notes
 

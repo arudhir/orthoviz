@@ -1,0 +1,588 @@
+{
+  "metadata": {
+    "pathway": "TCA Cycle (Citric Acid Cycle)",
+    "source": "KEGG map00020",
+    "organisms": {
+      "human": "Homo sapiens (hsa)",
+      "bacteria": "Escherichia coli K-12 (eco)",
+      "plant": "Arabidopsis thaliana (ath)"
+    },
+    "description": "Real KEGG orthology-based metabolic pathway data"
+  },
+  "nodes": [
+    {
+      "id": "CS_human",
+      "label": "Citrate synthase",
+      "layer": "human_mito",
+      "type": "enzyme",
+      "role": "K01647",
+      "notes": "CS gene - Condenses acetyl-CoA with oxaloacetate to form citrate. Rate-limiting step of TCA cycle."
+    },
+    {
+      "id": "CS_bacteria",
+      "label": "gltA",
+      "layer": "bacteria",
+      "type": "enzyme",
+      "role": "K01647",
+      "notes": "Citrate synthase - E. coli ortholog with similar catalytic mechanism"
+    },
+    {
+      "id": "CS_plant",
+      "label": "CSY3",
+      "layer": "plant",
+      "type": "enzyme",
+      "role": "K01647",
+      "notes": "Citrate synthase - Arabidopsis mitochondrial enzyme"
+    },
+    {
+      "id": "ACO_human",
+      "label": "Aconitase 2",
+      "layer": "human_mito",
+      "type": "enzyme",
+      "role": "K01681/K01682",
+      "notes": "ACO2 gene - Converts citrate to isocitrate via cis-aconitate. Contains Fe-S cluster."
+    },
+    {
+      "id": "ACO_bacteria",
+      "label": "acnA/acnB",
+      "layer": "bacteria",
+      "type": "enzyme",
+      "role": "K01681/K01682",
+      "notes": "Aconitase - E. coli has two isozymes (AcnA and AcnB)"
+    },
+    {
+      "id": "ACO_plant",
+      "label": "ACO2",
+      "layer": "plant",
+      "type": "enzyme",
+      "role": "K01681/K01682",
+      "notes": "Aconitase - Arabidopsis mitochondrial form"
+    },
+    {
+      "id": "IDH_human",
+      "label": "Isocitrate DH",
+      "layer": "human_mito",
+      "type": "enzyme",
+      "role": "K00031",
+      "notes": "IDH2/IDH3 genes - NAD+-dependent. Oxidative decarboxylation producing α-ketoglutarate and NADH."
+    },
+    {
+      "id": "IDH_bacteria",
+      "label": "icd",
+      "layer": "bacteria",
+      "type": "enzyme",
+      "role": "K00031",
+      "notes": "Isocitrate dehydrogenase - E. coli NADP+-dependent form"
+    },
+    {
+      "id": "IDH_plant",
+      "label": "IDH",
+      "layer": "plant",
+      "type": "enzyme",
+      "role": "K00031",
+      "notes": "Isocitrate dehydrogenase - Arabidopsis has both NAD+ and NADP+ forms"
+    },
+    {
+      "id": "OGDH_human",
+      "label": "α-KG DH complex",
+      "layer": "human_mito",
+      "type": "enzyme",
+      "role": "K00164",
+      "notes": "OGDH gene - Multi-enzyme complex. Oxidative decarboxylation of α-ketoglutarate."
+    },
+    {
+      "id": "OGDH_bacteria",
+      "label": "sucA/sucB",
+      "layer": "bacteria",
+      "type": "enzyme",
+      "role": "K00164",
+      "notes": "2-oxoglutarate dehydrogenase - E. coli enzyme complex"
+    },
+    {
+      "id": "OGDH_plant",
+      "label": "OGDH",
+      "layer": "plant",
+      "type": "enzyme",
+      "role": "K00164",
+      "notes": "α-ketoglutarate dehydrogenase - Arabidopsis mitochondrial complex"
+    },
+    {
+      "id": "SUCLG_human",
+      "label": "Succinyl-CoA ligase",
+      "layer": "human_mito",
+      "type": "enzyme",
+      "role": "K01902/K01903",
+      "notes": "SUCLG1/SUCLG2 genes - GDP/GTP-forming. Substrate-level phosphorylation."
+    },
+    {
+      "id": "SUCLG_bacteria",
+      "label": "sucC/sucD",
+      "layer": "bacteria",
+      "type": "enzyme",
+      "role": "K01902/K01903",
+      "notes": "Succinate-CoA ligase - E. coli ADP-forming enzyme"
+    },
+    {
+      "id": "SUCLG_plant",
+      "label": "SCS",
+      "layer": "plant",
+      "type": "enzyme",
+      "role": "K01902/K01903",
+      "notes": "Succinyl-CoA synthetase - Arabidopsis enzyme"
+    },
+    {
+      "id": "SDH_human",
+      "label": "Succinate DH",
+      "layer": "human_mito",
+      "type": "enzyme",
+      "role": "K00239-K00242",
+      "notes": "SDHA/B/C/D genes - Complex II of ETC. FAD-dependent. Feeds electrons to quinone pool."
+    },
+    {
+      "id": "SDH_bacteria",
+      "label": "sdhA/B/C/D",
+      "layer": "bacteria",
+      "type": "enzyme",
+      "role": "K00239-K00242",
+      "notes": "Succinate dehydrogenase - E. coli respiratory complex"
+    },
+    {
+      "id": "SDH_plant",
+      "label": "SDH1/2",
+      "layer": "plant",
+      "type": "enzyme",
+      "role": "K00239-K00242",
+      "notes": "Succinate dehydrogenase - Arabidopsis mitochondrial complex"
+    },
+    {
+      "id": "FH_human",
+      "label": "Fumarase",
+      "layer": "human_mito",
+      "type": "enzyme",
+      "role": "K01676/K01679",
+      "notes": "FH gene - Reversibly hydrates fumarate to malate"
+    },
+    {
+      "id": "FH_bacteria",
+      "label": "fumA/fumB/fumC",
+      "layer": "bacteria",
+      "type": "enzyme",
+      "role": "K01676/K01679",
+      "notes": "Fumarate hydratase - E. coli has three isozymes"
+    },
+    {
+      "id": "FH_plant",
+      "label": "FUM1/FUM2",
+      "layer": "plant",
+      "type": "enzyme",
+      "role": "K01676/K01679",
+      "notes": "Fumarase - Arabidopsis has mitochondrial and cytosolic forms"
+    },
+    {
+      "id": "MDH_human",
+      "label": "Malate DH",
+      "layer": "human_mito",
+      "type": "enzyme",
+      "role": "K00024",
+      "notes": "MDH2 gene - NAD+-dependent. Oxidizes malate to oxaloacetate, completing the cycle."
+    },
+    {
+      "id": "MDH_bacteria",
+      "label": "mdh",
+      "layer": "bacteria",
+      "type": "enzyme",
+      "role": "K00024",
+      "notes": "Malate dehydrogenase - E. coli enzyme"
+    },
+    {
+      "id": "MDH_plant",
+      "label": "mMDH1/2",
+      "layer": "plant",
+      "type": "enzyme",
+      "role": "K00024",
+      "notes": "Mitochondrial malate dehydrogenase - Arabidopsis"
+    },
+    {
+      "id": "PDH_human",
+      "label": "Pyruvate DH",
+      "layer": "human_mito",
+      "type": "enzyme",
+      "role": "K00161-K00163",
+      "notes": "PDHA/PDHB genes - Entry point: converts pyruvate to acetyl-CoA. Feeds the TCA cycle."
+    },
+    {
+      "id": "PDH_bacteria",
+      "label": "aceE/aceF",
+      "layer": "bacteria",
+      "type": "enzyme",
+      "role": "K00161-K00163",
+      "notes": "Pyruvate dehydrogenase - E. coli multi-enzyme complex"
+    },
+    {
+      "id": "PDH_plant",
+      "label": "PDH-E1α/β",
+      "layer": "plant",
+      "type": "enzyme",
+      "role": "K00161-K00163",
+      "notes": "Pyruvate dehydrogenase - Arabidopsis mitochondrial complex"
+    },
+    {
+      "id": "NDUFS_human",
+      "label": "Complex I (NADH DH)",
+      "layer": "human_mito",
+      "type": "enzyme",
+      "role": "K00330-K00340",
+      "notes": "NDUFV1/2, NDUFS1-8 genes - Electron transport chain. Oxidizes NADH from TCA cycle."
+    },
+    {
+      "id": "NDUFS_bacteria",
+      "label": "nuoA-N",
+      "layer": "bacteria",
+      "type": "enzyme",
+      "role": "K00330-K00340",
+      "notes": "NADH:ubiquinone oxidoreductase - E. coli respiratory complex I"
+    },
+    {
+      "id": "NDUFS_plant",
+      "label": "Complex I",
+      "layer": "plant",
+      "type": "enzyme",
+      "role": "K00330-K00340",
+      "notes": "NADH dehydrogenase - Arabidopsis mitochondrial ETC component"
+    },
+    {
+      "id": "ATP_human",
+      "label": "ATP synthase",
+      "layer": "human_mito",
+      "type": "enzyme",
+      "role": "K02111-K02115",
+      "notes": "ATP5A/B/C/D/E genes - Complex V. Synthesizes ATP using proton gradient from ETC."
+    },
+    {
+      "id": "ATP_bacteria",
+      "label": "atpA/B/C/D/E",
+      "layer": "bacteria",
+      "type": "enzyme",
+      "role": "K02111-K02115",
+      "notes": "F-type H+-transporting ATPase - E. coli membrane-bound enzyme"
+    },
+    {
+      "id": "ATP_plant",
+      "label": "ATP synthase",
+      "layer": "plant",
+      "type": "enzyme",
+      "role": "K02111-K02115",
+      "notes": "Mitochondrial ATP synthase - Arabidopsis. Also exists in chloroplasts."
+    }
+  ],
+  "edges": [
+    {
+      "source": "PDH_human",
+      "target": "CS_human",
+      "kind": "pathway",
+      "layer": "human_mito"
+    },
+    {
+      "source": "CS_human",
+      "target": "ACO_human",
+      "kind": "pathway",
+      "layer": "human_mito"
+    },
+    {
+      "source": "ACO_human",
+      "target": "IDH_human",
+      "kind": "pathway",
+      "layer": "human_mito"
+    },
+    {
+      "source": "IDH_human",
+      "target": "OGDH_human",
+      "kind": "pathway",
+      "layer": "human_mito"
+    },
+    {
+      "source": "OGDH_human",
+      "target": "SUCLG_human",
+      "kind": "pathway",
+      "layer": "human_mito"
+    },
+    {
+      "source": "SUCLG_human",
+      "target": "SDH_human",
+      "kind": "pathway",
+      "layer": "human_mito"
+    },
+    {
+      "source": "SDH_human",
+      "target": "FH_human",
+      "kind": "pathway",
+      "layer": "human_mito"
+    },
+    {
+      "source": "FH_human",
+      "target": "MDH_human",
+      "kind": "pathway",
+      "layer": "human_mito"
+    },
+    {
+      "source": "MDH_human",
+      "target": "CS_human",
+      "kind": "pathway",
+      "layer": "human_mito"
+    },
+    {
+      "source": "IDH_human",
+      "target": "NDUFS_human",
+      "kind": "pathway",
+      "layer": "human_mito"
+    },
+    {
+      "source": "NDUFS_human",
+      "target": "ATP_human",
+      "kind": "pathway",
+      "layer": "human_mito"
+    },
+    {
+      "source": "PDH_bacteria",
+      "target": "CS_bacteria",
+      "kind": "pathway",
+      "layer": "bacteria"
+    },
+    {
+      "source": "CS_bacteria",
+      "target": "ACO_bacteria",
+      "kind": "pathway",
+      "layer": "bacteria"
+    },
+    {
+      "source": "ACO_bacteria",
+      "target": "IDH_bacteria",
+      "kind": "pathway",
+      "layer": "bacteria"
+    },
+    {
+      "source": "IDH_bacteria",
+      "target": "OGDH_bacteria",
+      "kind": "pathway",
+      "layer": "bacteria"
+    },
+    {
+      "source": "OGDH_bacteria",
+      "target": "SUCLG_bacteria",
+      "kind": "pathway",
+      "layer": "bacteria"
+    },
+    {
+      "source": "SUCLG_bacteria",
+      "target": "SDH_bacteria",
+      "kind": "pathway",
+      "layer": "bacteria"
+    },
+    {
+      "source": "SDH_bacteria",
+      "target": "FH_bacteria",
+      "kind": "pathway",
+      "layer": "bacteria"
+    },
+    {
+      "source": "FH_bacteria",
+      "target": "MDH_bacteria",
+      "kind": "pathway",
+      "layer": "bacteria"
+    },
+    {
+      "source": "MDH_bacteria",
+      "target": "CS_bacteria",
+      "kind": "pathway",
+      "layer": "bacteria"
+    },
+    {
+      "source": "IDH_bacteria",
+      "target": "NDUFS_bacteria",
+      "kind": "pathway",
+      "layer": "bacteria"
+    },
+    {
+      "source": "NDUFS_bacteria",
+      "target": "ATP_bacteria",
+      "kind": "pathway",
+      "layer": "bacteria"
+    },
+    {
+      "source": "PDH_plant",
+      "target": "CS_plant",
+      "kind": "pathway",
+      "layer": "plant"
+    },
+    {
+      "source": "CS_plant",
+      "target": "ACO_plant",
+      "kind": "pathway",
+      "layer": "plant"
+    },
+    {
+      "source": "ACO_plant",
+      "target": "IDH_plant",
+      "kind": "pathway",
+      "layer": "plant"
+    },
+    {
+      "source": "IDH_plant",
+      "target": "OGDH_plant",
+      "kind": "pathway",
+      "layer": "plant"
+    },
+    {
+      "source": "OGDH_plant",
+      "target": "SUCLG_plant",
+      "kind": "pathway",
+      "layer": "plant"
+    },
+    {
+      "source": "SUCLG_plant",
+      "target": "SDH_plant",
+      "kind": "pathway",
+      "layer": "plant"
+    },
+    {
+      "source": "SDH_plant",
+      "target": "FH_plant",
+      "kind": "pathway",
+      "layer": "plant"
+    },
+    {
+      "source": "FH_plant",
+      "target": "MDH_plant",
+      "kind": "pathway",
+      "layer": "plant"
+    },
+    {
+      "source": "MDH_plant",
+      "target": "CS_plant",
+      "kind": "pathway",
+      "layer": "plant"
+    },
+    {
+      "source": "IDH_plant",
+      "target": "NDUFS_plant",
+      "kind": "pathway",
+      "layer": "plant"
+    },
+    {
+      "source": "NDUFS_plant",
+      "target": "ATP_plant",
+      "kind": "pathway",
+      "layer": "plant"
+    },
+    {
+      "source": "CS_human",
+      "target": "CS_bacteria",
+      "kind": "ortholog"
+    },
+    {
+      "source": "CS_human",
+      "target": "CS_plant",
+      "kind": "ortholog"
+    },
+    {
+      "source": "ACO_human",
+      "target": "ACO_bacteria",
+      "kind": "ortholog"
+    },
+    {
+      "source": "ACO_human",
+      "target": "ACO_plant",
+      "kind": "ortholog"
+    },
+    {
+      "source": "IDH_human",
+      "target": "IDH_bacteria",
+      "kind": "ortholog"
+    },
+    {
+      "source": "IDH_human",
+      "target": "IDH_plant",
+      "kind": "ortholog"
+    },
+    {
+      "source": "OGDH_human",
+      "target": "OGDH_bacteria",
+      "kind": "ortholog"
+    },
+    {
+      "source": "OGDH_human",
+      "target": "OGDH_plant",
+      "kind": "ortholog"
+    },
+    {
+      "source": "SUCLG_human",
+      "target": "SUCLG_bacteria",
+      "kind": "ortholog"
+    },
+    {
+      "source": "SUCLG_human",
+      "target": "SUCLG_plant",
+      "kind": "ortholog"
+    },
+    {
+      "source": "SDH_human",
+      "target": "SDH_bacteria",
+      "kind": "ortholog"
+    },
+    {
+      "source": "SDH_human",
+      "target": "SDH_plant",
+      "kind": "ortholog"
+    },
+    {
+      "source": "FH_human",
+      "target": "FH_bacteria",
+      "kind": "ortholog"
+    },
+    {
+      "source": "FH_human",
+      "target": "FH_plant",
+      "kind": "ortholog"
+    },
+    {
+      "source": "MDH_human",
+      "target": "MDH_bacteria",
+      "kind": "ortholog"
+    },
+    {
+      "source": "MDH_human",
+      "target": "MDH_plant",
+      "kind": "ortholog"
+    },
+    {
+      "source": "PDH_human",
+      "target": "PDH_bacteria",
+      "kind": "ortholog"
+    },
+    {
+      "source": "PDH_human",
+      "target": "PDH_plant",
+      "kind": "ortholog"
+    },
+    {
+      "source": "NDUFS_human",
+      "target": "NDUFS_bacteria",
+      "kind": "ortholog"
+    },
+    {
+      "source": "NDUFS_human",
+      "target": "NDUFS_plant",
+      "kind": "ortholog"
+    },
+    {
+      "source": "ATP_human",
+      "target": "ATP_bacteria",
+      "kind": "ortholog"
+    },
+    {
+      "source": "ATP_human",
+      "target": "ATP_plant",
+      "kind": "ortholog"
+    }
+  ]
+}
